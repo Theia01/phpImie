@@ -4,6 +4,7 @@ class Person {
 	private $firstname;
 	private $lastname;
 	private $wolf;
+	private $wolfs;
 
 	public function __construct($pFirstName, $pLastname){
 		$this->firstname = $pFirstName;
@@ -23,11 +24,15 @@ class Person {
 
 	/*John se presente*/
 	public function speak(): string{
-		return "Hello, my name is ".$this->firstname." ".$this->lastname." et mon loup se nomme ".$this->wolf->getNameWolf();
+		/*for(i = 0, $this->wolfs, i++) {
+			echo $key;
+		}*/
+		return "Hello, my name is ".$this->firstname." ".$this->lastname." et mon loup se nomme ".$this->wolf->getNameWolf()." Mes loup sont ";
 	}
 
 	public function meetWolf($pWolf){
 		$this->wolf = $pWolf;
+		$this->wolfs[] = $pWolf;
 		$this->wolf->setNomProprio($this->firstname);
 	}
 }
@@ -70,12 +75,13 @@ class Wolf{
 $person1 = new Person("John", "Snow");
 
 $wolf = new Wolf("Doug");
+$cat = new Wolf("Misti");
 
 $person1->meetWolf($wolf);
+$person1->meetWolf($cat);
 
 var_dump($person1->speak());
 var_dump($wolf->speak());
-
 
 
 
