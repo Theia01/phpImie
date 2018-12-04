@@ -28,11 +28,13 @@ class Person {
 
 	public function meetWolf($pWolf){
 		$this->wolf = $pWolf;
+		$this->wolf->setNomProprio($this->firstname);
 	}
 }
 
 class Wolf{
 	private $nameWolf;
+	private $nomProprietaire;
 	/*methode qui s'exécute lors de la creation de l'objet donc: $person1 = new Person;*/
 	public function __construct(string $name){
 		$this->nameWolf = $name;
@@ -43,10 +45,19 @@ class Wolf{
 		$this->nameWolf = $pnameWolf;
 	}
 
+	public function setNomProprio(string $pProprio){
+		$this->nomProprietaire = $pProprio;
+	}
+
 	/*Creation d'un getteur (accesseur)*/
 	public function getNameWolf(){
 		return $this->nameWolf;
 	}
+
+	public function speak(){
+		return "Mon maître est ".$this->nomProprietaire." aboya ".$this->nameWolf;
+	}
+
 }
 
 
@@ -63,6 +74,7 @@ $wolf = new Wolf("Doug");
 $person1->meetWolf($wolf);
 
 var_dump($person1->speak());
+var_dump($wolf->speak());
 
 
 
