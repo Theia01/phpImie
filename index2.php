@@ -1,6 +1,11 @@
 <?php 
+class Terrien{
+	public function speak(){
+		echo "bonjour";
+	}
+}
 
-class Person{
+class Person extends Terrien{
 	private $prenom;
 	private $nom;
 
@@ -64,5 +69,4 @@ $loup2 = new Loup("Gin");
 $eric->meet($loup);
 $eric->meet($loup2);
 
-var_dump($eric);
 var_dump($eric->speak());
