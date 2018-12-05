@@ -3,7 +3,8 @@
 class Person{
 	private $prenom;
 	private $nom;
-	private $monLoup;
+
+	private $mesLoups;
 
 	/*Creation mutateur*/
 	public function setPrenom($name){
@@ -15,8 +16,13 @@ class Person{
 		return $this->prenom;
 	}
 
-	public function speak(): string{
-		return "Je m'appelle ".$this->prenom.", enchanté j'ai un loup nommée ".$this->monLoup->getPrenom();
+	public function speak(){
+		$listeloup =array();
+		foreach ($this->mesLoups as $key) {
+			$listeloup[] = $key->getPrenom();
+		}
+
+		return "Je m'appelle ".$this->prenom.", enchanté j'ai plusieurs loups nommée ".implode(', ', $listeloup);
 	}
 
 	public function __construct($prenom, $nom){
@@ -24,8 +30,8 @@ class Person{
 		$this->nom = $nom;
 	}
 	public function meet($nameLoup){
-		$this->monLoup = $nameLoup;
-		$this->monLoup->setPropio($this->prenom);
+		$this->mesLoups[] = $nameLoup;
+		$nameLoup->setPropio($this->prenom);
 	}
 
 }
@@ -53,7 +59,10 @@ class Loup{
 
 $eric = new Person("Eric", "GIGONDAN");
 $loup = new Loup("Doug");
+$loup2 = new Loup("Gin");
+
 $eric->meet($loup);
+$eric->meet($loup2);
 
 var_dump($eric);
-var_dump($loup->speak());
+var_dump($eric->speak());
