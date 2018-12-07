@@ -1,4 +1,4 @@
-<?php
+<?php 
 session_start();
 require_once '../framework/config.php';
 require_once '../framework/client.php';
@@ -49,38 +49,6 @@ try {
 
 ?>
 
-
-<?php include("head.php");?>
-<h2>DASHBOARD</h2>
-<h3>Bienvenue </h3>
-<br/>
-
-<table class="table">
-    <thead>
-    <tr>
-        <th>Book</th>
-        <th colspan="3">Action</th>
-    </tr>
-    </thead>
-    <tbody>
-    <?php foreach ($books as $book): ?>
-    <tr>
-        <td><?php echo $book->getBook();?></td>
-        <td>
-            <a href="deleteBook.php?id=<?php echo $book->getId();?>">Delete</a>
-        </td>
-        <td>
-            <a href="modifierBook.php?idB=<?php echo $book->getId();?>&nom=<?php echo $book->getBook();?>">Modifier</a>
-        </td>
-        <td>
-            <a href="consulterBook.php">Consulter</a>
-        </td>
-    </tr>
-    <?php endforeach; ?>
-    </tbody>
-</table>
-
- <form action="" method="POST">
-    <input class="btn btn-primary" value="add" name="add" type="submit"/>
-</form>
-<?php include("end.php");?>
+<?php include("head.php");?>	
+<p>Cette opération n'est pas possible pour le moment <a href="dashboard.php">Revenir sur le dahboard</a></p>
+<?php include("end.php");?>	
